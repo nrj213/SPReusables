@@ -1,0 +1,42 @@
+(function () {
+    ExecuteOrDelayUntilScriptLoaded(_registerDemoViewTemplate, 'clienttemplates.js');
+    function _registerDemoViewTemplate() {
+        // Initialize the variable that store the objects. 
+        var overrideCtx = {};
+        overrideCtx.Templates = {};
+        overrideCtx.Templates.Header = RenderDemoViewHeader;
+        overrideCtx.Templates.Item = ItemRenderCustom;
+        overrideCtx.OnPostRender = OnDemoViewViewPostRender;
+        // Register the template overrides. 
+        SPClientTemplates.TemplateManager.RegisterTemplateOverrides(overrideCtx);
+    }
+    function OnDemoViewViewPostRender(ctx) {
+        if (window.navigator.appName != "Microsoft Internet Explorer") {
+            $(".flex-container").css({ 'width': 'auto' });
+        }
+    }
+    function RenderDemoViewHeader(ctx) {
+        return RenderHeaderTemplate(ctx);
+    }
+    function ItemRenderCustom(renderCtx) {
+        var listItem = renderCtx.CurrentItem;
+        var listSchema = renderCtx.ListSchema;
+        var idx = renderCtx.CurrentItemIdx;
+        var _indicator = "green";
+        var itemHTML = [];
+        if (idx == 0) {
+            itemHTML.push('<tr>');
+            var fields = listSchema ? listSchema.Field : null;
+            itemHTML.push('<td colspan="');
+            itemHTML.push(fields.length + 2);
+            itemHTML.push('" class="tdItems" >');
+            itemHTML.push('<div id="container-fluid"><h1 class="text-center">Demo121</h1><ul class="flex-container row">');
+        }
+        itemHTML.push(String.format('<li class="white-panel"><div class="panel-heading Demo121-ts-{2} Demo121-ts-heading">{0}</div><div class="panel-body"><p><b>Assigned To: </b>{4}</p><p ><b>Status: </b>{1}<span class="Demo121-ts-icon-{2}"></span></p><p><b>Department:</b>{3}</p></div></li>', listItem.Title, listItem.Status,  _indicator, listItem.Departments, listItem.AssignedTo[0].title));
+        if (idx == renderCtx.ListData.Row.length - 1) {
+            itemHTML.push('</ul></div></td>');
+            itemHTML.push('</tr>');
+        }
+        return itemHTML.join('');
+    };
+})();

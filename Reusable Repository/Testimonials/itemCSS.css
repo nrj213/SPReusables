@@ -1,0 +1,85 @@
+﻿/*-----------------------------Testimonials Styles Starts------------------------------*/
+.ms-dialog #s4-ribbonrow {
+    display: none;
+}
+
+.testimonial-wrapper {
+    text-align: center;
+}
+
+.testimonial-content {
+    overflow: hidden;
+}
+
+.testimonial-scroll-wrapper {
+    overflow: auto;
+    max-height: 200px;
+}
+
+.testimonial-item {
+    overflow: hidden;
+    padding: 2% 2% 2%;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+:last-of-type.testimonial-item {
+    border: 0;
+}
+
+.testimonial-item .middle {
+    float: left;
+    padding: 0 2%;
+    width: 80%;
+}
+
+.testimonial-item .middle .text {
+    text-align: left;
+}
+
+.testimonial-item .middle .text .read-more {
+    color: #c0c0c0;
+}
+
+.testimonial-item .left, .testimonial-item .right {
+    width: 8%;
+    float: left;
+}
+
+:first-of-type.testimonial-item .middle, :first-of-type.testimonial-item .right {
+    margin-top: 4%;
+}
+
+:last-of-type.testimonial-item .right {
+    margin-top: 8%;
+}
+
+.testimonial-item .author-wrapper div.details {
+    font-size: 12px;
+    float: left;
+    width: 78%;
+    text-align: left;
+}
+
+.testimonial-item .author-wrapper {
+    margin-top: 1.5%;
+    overflow: hidden;
+    float: right;
+    width: 300px;
+}
+
+.testimonial-item .author-wrapper .details div:nth-child(1) {
+    color: #808080;
+}
+
+.testimonial-item .author-wrapper .img {
+    float: left;
+    margin-right: 3%;
+    width: 19%;
+}
+
+.testimonial-item .author-wrapper .img img {
+    border-radius: 50px;
+    width: 50px;
+    border: 2px solid #c0c0c0;
+}
+/*-----------------------------Testimonials Styles Ends------------------------------*/

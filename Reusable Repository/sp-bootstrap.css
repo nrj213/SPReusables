@@ -1,0 +1,340 @@
+
+/* Overriding Sharepoint styles */
+#sideNavBox,
+#s4-titlerow,
+#titleAreaBox {
+    display: none !important;
+}
+
+#s4-workspace {
+    overflow: visible !important;
+}
+
+#contentBox {
+    width: 100%;
+    min-width: 0px;
+    margin: 0 !important;
+}
+
+.ms-rte-layoutszone-inner {
+    border: 0px !important;
+    margin: 0px !important;
+}
+
+#s4-bodyContainer {
+    padding: 0px !important;
+}
+
+#contentRow {
+    padding-top: 0;
+}
+
+.ms-webpartzone-cell {
+    margin: 0 !important;
+}
+
+.ms-wikicontent {
+    padding: 0 !important;
+}
+
+body {
+    overflow: inherit !important;
+}
+
+#suiteBar {
+    position: fixed !important;
+    z-index: 1011 !important;
+    width: 100%;
+}
+
+#s4-ribbonrow {
+    position: fixed !important;
+    margin-top: 30px;
+    width: 100%;
+    z-index: 1010 !important;
+}
+
+
+
+/****************************************SP Bootstrap override styles*********************************************************/
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+    * [class^="col-"],
+    * [class^="col-"]:before,
+    * [class^="col-"]:after,
+    .container,
+    .container:before,
+    .container:after,
+    .row,
+    .row:before,
+    .row:after,
+    .nav *,
+    .navbar-toggle,
+    .table,
+    .table-responsive,
+    .form-control,
+    .btn-block,
+    .caret,
+    .dropdown-menu,
+    .navbar-toggle,
+    .page-navigation *,
+    .icon-bar,
+    .breadcrumb,
+    .progress-bar,
+    .modal-dialog,
+    legend,
+    fieldset,
+    code,
+    pre {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+img {
+    max-width: none;
+    width: auto;
+}
+
+* [class^="col-"] img {
+    max-width: none;
+}
+
+#scriptWPQ2 img,
+img.ms-webpart-menuArrowImg,
+#applist img,
+.ms-core-menu-icon > img {
+    width: auto;
+    max-width: none;
+}
+
+.ms-siteactions-imgspan {
+    float: none;
+    margin: 0px;
+}
+
+input.ms-cui-cb-input {
+    height: 14px;
+    padding: 3px 7px 2px;
+}
+
+select,
+input[type="file"] {
+    height: auto;
+    line-height: 20px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+
+.navbar-toggle {
+    min-width: 0px;
+}
+
+a:focus {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+.container {
+    background-color: transparent;
+    border: 1px transparent none;
+    color: inherit;
+    margin: 0px auto;
+}
+
+#s4-bodyContainer {
+    width: auto !important;
+}
+
+#suiteBar {
+    display: block;
+    height: 60px;
+}
+
+#contentBox {
+    min-width: 0px !important;
+}
+
+#suiteBarLeft,
+#suiteBarRight {
+    display: inline-block;
+    width: 100%;
+}
+
+    #suiteBarRight .ms-core-deltaSuiteBarRight {
+        float: right;
+    }
+
+#s4-ribbonrow [class*="col-"] {
+    float: none;
+    margin-left: 0px;
+}
+
+#pageStatusBar[class],
+.ms-status-msg {
+    margin-bottom: 0px;
+}
+
+.ms-cui-dd-text,
+input.ms-cui-cb-input,
+input[type="text"].ms-cui-cb-input {
+    border-color: #D3D6D9;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    cursor: default;
+    display: block;
+    height: 14px;
+    padding: 3px 7px 2px;
+    white-space: nowrap;
+    font-size: inherit;
+}
+
+.header {
+    margin-top: 10px;
+}
+
+.headtitle {
+    margin-left: 10px;
+}
+
+#pageTitle {
+    margin: 0px 0px 5px;
+    font-size: 2em;
+}
+
+ul.s4-breadcrumb {
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+    ul.s4-breadcrumb,
+    ul.s4-breadcrumb ul {
+        margin: 0px 0px 5px;
+        padding: 0px;
+        list-style: none inside none;
+        display: inline-block;
+    }
+
+        ul.s4-breadcrumb .s4-breadcrumb-arrowcont img {
+            display: none !important;
+        }
+
+        ul.s4-breadcrumb > li:first-child > span.s4-breadcrumb-arrowcont {
+            display: none;
+        }
+
+        ul.s4-breadcrumb a.s4-breadcrumbCurrentNode {
+            color: #000;
+        }
+
+.header .searchbox {
+    display: block;
+    float: none;
+    clear: both;
+}
+
+#idStorefrontManagementLeftNavBar.ms-core-sideNavBox-removeLeftMargin {
+    margin-left: 0;
+}
+
+a.ms-storefront-selectanchor,
+a.ms-storefront-selectanchor:link,
+a.ms-storefront-selectanchor:visited {
+    clear: both;
+    width: auto;
+}
+
+.ms-SPZone.ms-webpart-zone {
+    padding: 5px;
+}
+
+.ms-SPZone > .s4-wpcell,
+.ms-SPZone > .s4-wpcell-plain,
+.ms-rtestate-write > .ms-rte-wpbox > div > .s4-wpcell,
+.ms-rtestate-write > .ms-rte-wpbox > div > .s4-wpcell-plain {
+    padding: 5px 5px 10px;
+}
+
+#MSOTlPn_WebPartPageDiv > tbody > tr > td:first-child {
+    padding-right: 10px;
+}
+
+.ms-ToolPaneBody select,
+.ms-ToolPaneBody textarea,
+.ms-ToolPaneBody input[type="text"],
+.ms-ToolPaneBody input[type="password"],
+.ms-ToolPaneBody input[type="datetime"],
+.ms-ToolPaneBody input[type="datetime-local"],
+.ms-ToolPaneBody input[type="date"],
+.ms-ToolPaneBody input[type="month"],
+.ms-ToolPaneBody input[type="time"],
+.ms-ToolPaneBody input[type="week"],
+.ms-ToolPaneBody input[type="number"],
+.ms-ToolPaneBody input[type="email"],
+.ms-ToolPaneBody input[type="url"],
+.ms-ToolPaneBody input[type="search"],
+.ms-ToolPaneBody input[type="tel"],
+.ms-ToolPaneBody input[type="color"],
+.ms-ToolPaneBody .uneditable-input {
+    margin-bottom: 0px;
+    width: auto;
+    height: auto;
+    line-height: 20px;
+}
+
+.ms-ToolPaneBody label {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.ms-fullscreenmode #mainbody,
+.b3-fullscreenmode #mainbody {
+    margin-left: 0px;
+    width: 100%;
+}
+
+.ms-fullscreenmode #sideNavBox,
+.b3-fullscreenmode #sideNavBox {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #suiteBar {
+        display: table-row;
+        height: 30px;
+    }
+
+    #suiteBarLeft,
+    #suiteBarRight {
+        display: table-cell;
+        width: 100%;
+    }
+
+    #suiteBarRight {
+        width: auto;
+    }
+
+        #suiteBarRight .ms-core-deltaSuiteBarRight {
+            float: none;
+        }
+
+    .header .searchbox {
+        display: block;
+        float: right;
+        clear: none;
+    }
+}

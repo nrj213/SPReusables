@@ -1,0 +1,259 @@
+﻿.main-wrapper {
+    background-color: rgba(239, 239, 239, 1);
+    overflow: hidden;
+    height: 615px;
+}
+
+.slice-heading-wrapper {
+    background-color: rgba(45, 150, 60, 1);
+    float: left;
+    text-align: center;
+    width: 10%;
+    cursor: pointer;
+}
+
+.slice-content-wrapper .arrow-icon {
+    position: absolute;
+    height: 36px;
+    width: 20px;
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/arrow_green.png') no-repeat;
+    left: -2px;
+    top: 90px;
+}
+
+.slice-heading-wrapper .icon {
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/icon_EWT.png') no-repeat center;
+}
+
+.slice-content-wrapper {
+    position: relative;
+    display: none;
+    overflow: auto;
+    height: 615px;
+    float: left;
+    text-align: center;
+    background-color: rgba(239, 239, 239, 1);
+    padding: 0 1%;
+    width: 68%;
+}
+
+:nth-of-type(2).slice-content-wrapper .item:hover {
+    background-color: rgba(51, 103, 151, 1);
+}
+
+.slice-content-wrapper .item:hover {
+    color: #fff;
+    background-color: rgba(45, 150, 60, 1);
+}
+
+:nth-of-type(6).slice-content-wrapper .item:hover {
+    background-color: rgba(0, 160, 171, 1);
+}
+
+.slice-content-wrapper:nth-of-type(6) .arrow-icon {
+    position: absolute;
+    height: 36px;
+    width: 20px;
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/arrow_light_blue.png') no-repeat;
+    left: -2px;
+    top: 90px;
+}
+
+:first-of-type.slice-heading-wrapper {
+    background-color: rgba(51, 103, 152, 1);
+}
+
+:first-of-type.slice-heading-wrapper .heading span {
+    left: -5px;
+    bottom: 87px;
+}
+
+:first-of-type.slice-heading-wrapper .icon {
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/icon_CT.png') no-repeat center;
+}
+
+.slice-content-wrapper:nth-of-type(2) .arrow-icon {
+    position: absolute;
+    height: 36px;
+    width: 20px;
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/arrow_blue.png') no-repeat;
+    left: -2px;
+    top: 90px;
+}
+
+:nth-last-child(2).slice-heading-wrapper {
+    background-color: rgba(0, 161, 172, 1);
+}
+
+:nth-last-child(2).slice-heading-wrapper .heading span {
+    left: -12px !important;
+    bottom: 95px;
+}
+
+:nth-last-child(2).slice-heading-wrapper .icon {
+    background: url('https://share.ey.net/sites/technology/SiteAssets/Images/org-chart/icon_IS.png') no-repeat center;
+}
+
+.slice-heading-wrapper .heading {
+    position: relative;
+    height: 505px;
+}
+
+.slice-heading-wrapper .heading span {
+    transform: rotate(270deg);
+    white-space: nowrap;
+    position: absolute;
+    bottom: 138px;
+    left: -57px;
+    color: #fff;
+    font-size: 1.1vw;
+    font-weight: 600;
+}
+
+.slice-heading-wrapper .icon {
+    margin-bottom: 50px;
+    height: 75px;
+}
+
+.main-row {
+    padding-top: 6.5%;
+}
+
+.main-row .item {
+    position: relative;
+    background-color: rgba(253, 253, 253, 1);
+    border: 1px solid rgba(222, 222, 222, 1);
+    width: 26%;
+    margin-left: 35%;
+    padding: 6% 2% 2%;
+}
+
+.main-row .item img {
+    border-radius: 42px;
+    border: 5px solid #fff;
+    position: absolute;
+    top: -41px;
+    left: 80px;
+}
+
+.main-row .item .details-wrapper {
+    min-height: 65px;
+}
+
+.main-row .item .details-wrapper .main .name {
+    font-size: 1.1vw;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.main-row .item .details-wrapper .main .unit {
+    color: #808080;
+}
+
+.main-row .item .details-wrapper .sub {
+    display: none;
+}
+
+.sub-row {
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.sub-row .item {
+    position: relative;
+    background-color: rgba(253, 253, 253, 1);
+    border: 1px solid rgba(222, 222, 222, 1);
+    width: 19.7%;
+    float: left;
+    padding: 6% 2% 2%;
+    margin: 7% 0.5% 0;
+}
+
+.sub-row .item img {
+    border-radius: 42px;
+    border: 5px solid #fff;
+    position: absolute;
+    top: -41px;
+    left: 55px;
+}
+
+.sub-row .item .details-wrapper {
+    min-height: 65px;
+}
+
+.sub-row .item .details-wrapper .main .name {
+    font-size: 1.1vw;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.sub-row .item .details-wrapper .main .unit {
+    color: #808080;
+}
+
+.sub-row .item .details-wrapper .sub {
+    display: none;
+}
+
+.sub-wrappper .left-section {
+    float: left;
+    width: 50%;
+    margin-top: 0.6%;
+}
+
+.sub-wrappper .right-section {
+    width: 50%;
+    float: left;
+}
+
+.sub-wrappper .left-section .icon {
+    float: left;
+    width: 13%;
+}
+
+.sub-wrappper .left-section .text {
+    float: left;
+    margin-left: 3%;
+    font-weight: 600;
+    font-size: 1.2vw;
+    margin-top: 4.5%;
+    width: 84%;
+}
+
+.sub-wrappper .right-section .photo {
+    float: left;
+}
+
+.sub-wrappper .right-section .name {
+    float: left;
+    font-size: 1.1vw;
+    margin-top: 4%;
+    font-weight: 600;
+    border-right: 1px solid #999999;
+    padding: 2% 4%;
+}
+
+.sub-wrappper .right-section .details {
+    float: left;
+    margin: 3% 4%;
+}
+
+.sub-wrappper .right-section .photo img {
+    border-radius: 43px;
+    border: 5px solid #fff;
+}
+
+.sub-wrappper {
+    background-color: rgba(51, 51, 51, 1);
+    color: #fff;
+    padding: 1% 0 1% 6%;
+    overflow: hidden;
+}
+
+.slice-content-wrapper .item:hover .details-wrapper .sub {
+    display: block;
+}
+
+.slice-content-wrapper .item:hover .details-wrapper .main {
+    display: none;
+}

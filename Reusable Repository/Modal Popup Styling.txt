@@ -1,0 +1,13 @@
+<style>
+.ms-dlgTitle {
+    background-color: rgb(102,102,102);
+}
+
+.ms-dlgTitleText {
+    color: #fff;
+}
+
+.ms-dlgCloseBtn span.s4-clust {
+    background-color: #fff;
+}
+</style>

@@ -1,0 +1,146 @@
+﻿FirstName:Anu
+SPS-PhoneticFirstName:
+LastName:Raj
+SPS-PhoneticLastName:
+UserProfile_GUID:8fb5acc9-92dd-439c-bbfd-9d05a95fe1b2
+SID:S-1-5-21-1644491937-1275210071-1417001333-533754
+ADGuid:
+Title:Staff/Assistant
+PreferredName:Anu Raj J
+PictureURL:https://my.ey.net:443/User%20Photos/Profile%20Pictures/mea_anu_raj_MThumb.jpg
+SPS-Responsibility:SharePoint|HTML5|jQuery|AngularJS|CSS3
+Department:PI
+AboutMe:I'm an IT enthusiast.
+SPS-PastProjects:My Experiences|GSA Mobile Device Refresh Survey|Advisory Leadership Excellence (EMEIA)
+SPS-Interests:organising events|Learning ＆ Develpoment
+EYPreferredPhone:+91 8891906510
+CellPhone:+91 8891906510
+OtherNamesYouMayKnowMeBy:
+EYTwitter:
+EYLinkedIn:
+EYFacebook:
+EYGoogle+:
+SPS-Department:PI
+SPS-PhoneticDisplayName:
+SPS-Location:
+AccountName:MEA\Anu.Raj
+WorkEmail:Anuraj.j@xe04.ey.com
+EYTagLine:
+WorkPhone:+91 471 3380808
+EYWorkExtension:
+Manager:
+Fax:
+EYWorkLocationDescription:GSSK Tvm KP - Drishya
+PersonalSpace:/personal/mea_anu_raj/
+EYWorkLocationAddress1:Drishya, Ground floor
+EYWorkLocationAddress2:Kinfra Film & Videopark, SEZ
+UserName:Anu.Raj
+QuickLinks:
+EYWorkLocationAddress3:Sainik School (PO), Kazhakuttam
+EYWorkLocationAddress4:
+WebSite:
+EYWorkLocationAddressCity:Trivandrum
+EYWorkLocationAddressState:Kerala
+EYWorkLocationAddressPostalCode:695585
+EYWorkLocationAddressCountry:India
+EYServiceLineDescription:Advisory
+EYSubServiceLineDescription:PI
+PublicSiteRedirect:
+EYSubManagementUnitDescription:PI-Other Performance Imprvemnt
+EYBusinessUnitDescription:NSI
+EYAreaDescription:Europe,MiddleEast,India,Africa
+EYSubAreaDescription:GSS
+EYManagementUnitDescription:Global
+EYIndustrySector:
+EYRankDescription:Staff/Assistant
+SPS-JobTitle:Staff/Assistant
+EYPrimaryLanguage:English
+EYGPN:IN011304208
+SPS-Birthday:
+SPS-DistinguishedName:CN=Anu Raj,OU=Users,OU=CS&A,OU=GSS,OU=IN,DC=mea,DC=ey,DC=net
+HomePhone:
+EYGUI:2073480
+EYLegalFirstName:Anu
+EYLegalLastName:Raj J
+EYLegalMiddleName:
+EYLegalSecondLastName:
+EYPreferredFirstName:
+EYPreferredLastName:
+EYPreferredMiddleName:
+EYPreferredSecondLastName:
+EYGlobalAssigneeIndicator:
+EYServiceLineCode:03
+EYSubServiceLineCode:0316
+EYBusinessUnitCode:IN112
+EYSubManagementUnitCode:0316060
+EYOperatingUnitCode:01776
+EYOperatingUnitDescription:Advisory
+EYManagementUnitCode:00167
+EYPhysicalArea:EM
+EYPhysicalSubArea:India
+Assistant:
+EYWorkLocationCity:CIN00012
+SPS-SipAddress:anu.raj.j@ey.com
+Webpage:
+EYEmploymentStatus:A
+EYRankCode:44
+SPS-UserPrincipalName:Anu.Raj@mea.ey.net
+SPS-PersonalSiteCapabilities:14
+SPS-O15FirstRunExperience:15
+SPS-PersonalSiteInstantiationState:2
+SPS-MemberOf:
+SPS-Dotted-line:
+SPS-Peers:
+SPS-FeedIdentifier:https://my.ey.net/personal/mea_anu_raj;1.41ac856863e04aa5bd5172c54cc966c6.a8d191de4128420abab3d338ffcb717a.91659e4d04fb4aefb64322f87c3e9819.0c37852b34d0418e91c62ac25af4be5b
+SPS-MySiteUpgrade:
+SPS-DontSuggestList:
+SPS-ProxyAddresses:
+SPS-HireDate:
+SPS-DisplayOrder:
+SPS-ClaimID:
+SPS-ClaimProviderID:Windows
+SPS-ClaimProviderType:Windows
+SPS-LastColleagueAdded:
+SPS-OWAUrl:
+SPS-SavedAccountName:MEA\Anu.Raj
+SPS-SavedSID:System.Byte[]
+SPS-ResourceAccountName:
+SPS-ResourceSID:
+SPS-DataSource:
+SPS-MasterAccountName:
+SPS-ObjectExists:
+SPS-SourceObjectDN:
+SPS-LastKeywordAdded:5/16/2016 12:00:00 AM
+Office:GSSK Tvm KP - Drishya
+SPS-Skills:
+SPS-School:
+SPS-StatusNotes:
+SPS-HashTags:
+SPS-EmailOptin:0
+SPS-PrivacyPeople:True
+SPS-PrivacyActivity:0
+SPS-WorkDayStartHour:
+SPS-PictureTimestamp:63569589636
+SPS-WorkDayEndHour:
+SPS-PicturePlaceholderState:0
+SPS-FirstDayOfWeek:
+SPS-PictureExchangeSyncState:0
+SPS-FirstWeekOfYear:
+SPS-RegionalSettings-Initialized:True
+SPS-MUILanguages:
+SPS-ContentLanguages:ui-ui
+SPS-RegionalSettings-FollowWeb:True
+SPS-TimeZone:
+SPS-Locale:
+SPS-CalendarType:
+SPS-AltCalendarType:
+SPS-AdjustHijriDays:
+SPS-ShowWeeks:
+SPS-WorkDays:
+SPS-Time24:
+EYPrimarySector:
+EYSecondarySector:
+EYUploadCV:True
+EYExternalDataLastUpdate:8/11/2016 9:22:06 PM
+EYAccountType:01
+EYWorkLocationCode:IN035

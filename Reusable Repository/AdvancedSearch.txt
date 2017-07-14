@@ -1,0 +1,538 @@
+<script src="../SiteAssets/js/jquery1.10.js"></script>
+<script src="../SiteAssets/js/angular.min.js"></script>
+<script src="../SiteAssets/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../SiteAssets/css/bootstrap.min.css">
+<style>
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
+
+    .input-group {
+        z-index: 0;
+    }
+
+    .profile {
+        cursor: pointer;
+    }
+
+    .preferences-wrapper {
+        display: none;
+    }
+
+    #instrHeader {
+        display: none;
+    }
+
+    #instrBody {
+        display: none;
+    }
+
+    .add-item {
+        display: none;
+    }
+
+    .highlightedText {
+        background: yellow;
+    }
+
+    .ng-binding {
+        font-family: "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+        font-size: 13px;
+    }
+	
+	td.ms-cellstyle.ms-vb2.ng-binding.multiline{
+        max-width: 200px;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    td.ms-cellstyle.ms-vb2.ng-binding.medium{
+        max-width: 150px;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+    
+    .ng-scope .table th.singleline.ms-vh2-nofilter {
+        max-width: 78px;
+        white-space: normal;
+        word-wrap: break-word;
+        word-break: break-word;
+    }
+   
+    .ng-scope .table>tbody>tr>td, .ng-scope .table>tbody>tr>th, .ng-scope .table>tfoot>tr>td, .ng-scope .table>tfoot>tr>th, .ng-scope .table>thead>tr>td, .ng-scope .table>thead>tr>th {
+        max-width: 80px;
+        word-wrap: break-word;
+    }
+	
+	/* Media Query elements for Responsive page design */
+/* IPad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .ng-scope .table th.singleline.ms-vh2-nofilter {
+    /*   white-space: nowrap; */
+       max-width: 95px;	   
+     }
+	 
+	td.ng-binding {
+      font-size: 11px;
+    }
+	
+	.ng-binding {
+      font-size: 11px;
+    }
+	.ng-scope .table th.singleline.ms-vh2-nofilter {
+		word-break: normal;
+	}
+	
+	.ng-scope .table>tbody>tr>td, .ng-scope .table>tbody>tr>th, .ng-scope .table>tfoot>tr>td, .ng-scope .table>tfoot>tr>th, .ng-scope .table>thead>tr>td, .ng-scope .table>thead>tr>th {
+        max-width: 90px;
+    }
+}
+
+/* Smart Phones */
+@media only screen and (min-device-width : 320px) and (max-device-width : 750px) {
+	td.ng-binding {
+      font-size: 12px;
+    }
+	.ng-scope .table th.singleline.ms-vh2-nofilter {
+      padding: 6px;
+    }
+	.ng-scope .table>tbody>tr>td, .ng-scope .table>tbody>tr>th, .ng-scope .table>tfoot>tr>td, .ng-scope .table>tfoot>tr>th, .ng-scope .table>thead>tr>td, .ng-scope .table>thead>tr>th {
+      padding: 6px;
+    }
+}
+
+</style>
+
+<div ng-app="myApp">
+    <div style='margin: 10px 0px; color: red'><b>Note</b>: If searching multiple keywords, please use a space to separate keywords.</div>
+    <div ng-controller="TableCtrl">
+        <div class="input-group">
+            <input class="form-control" ng-model="searchText" placeholder="Search" type="search" ng-change="search()" /> <span class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+        </div>
+        <table class="table  table-hover data-table myTable ms-listviewtable">
+            <thead>
+                <tr class="ms-viewheadertr">
+                    <th class="ms-vh2-nofilter singleline"></th>
+                    <th class="ms-vh2-nofilter singleline">Name</th>
+                    <th class="ms-vh2-nofilter singleline">SL/ SSL</th>
+                    <th class="ms-vh2-nofilter singleline">Rank</th>
+                    <th class="ms-vh2-nofilter singleline">Availability</th>
+                    <th class="ms-vh2-nofilter singleline">Ask Me About</th>
+                    <th class="ms-vh2-nofilter singleline">My Competencies</th>
+                    <th class="ms-vh2-nofilter singleline">Sector</th>
+                    <th class="ms-vh2-nofilter singleline">Domain</th>
+                    <th class="ms-vh2-nofilter singleline">City</th>
+                    <th class="ms-vh2-nofilter singleline">Country</th>
+                    <th class="ms-vh2-nofilter singleline">Region</th>
+                    <th class="ms-vh2-nofilter singleline">Experience Manager</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="ng-cloak ms-itmhover" ng-repeat="item in ItemsByPage[currentPage] | orderBy:columnToOrder:reverse">
+                    <td class="ms-cellstyle ms-vb2"><img src='../SiteAssets/images/availability.png' alt='Send Mail' title='Email Resource' style='width:30px' class='interest-button' data-button='{{item.ItemId}}' value='Email Resource' ng-click='sendEmail(item.Email,item.ExperienceManagerEmail,item.Name)' /></td>
+                    <td class="ms-cellstyle ms-vb2"><a class="profile" ng-click='ShowBCard(item.UserId)' ng-bind-html="highlight(item.Name, searchText)">{{item.Name}}</a></td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.SSL, searchText)">{{item.SSL}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.Rank, searchText)">{{item.Rank}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.Availability, searchText)">{{item.Availability}}</td>
+                    <td class="ms-cellstyle ms-vb2 medium" ng-bind-html="highlight(item.AboutMe, searchText)">{{item.AboutMe}}</td>
+                    <td class="ms-cellstyle ms-vb2 multiline" ng-bind-html="highlight(item.MyCompetencies, searchText)">{{item.MyCompetencies}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.SectorName, searchText)">{{item.SectorName}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.Competency, searchText)">{{item.Competency}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.CityName, searchText)">{{item.CityName}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.Country, searchText)">{{item.Country}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.Region, searchText)">{{item.Region}}</td>
+                    <td class="ms-cellstyle ms-vb2" ng-bind-html="highlight(item.ExperienceManager, searchText)">{{item.ExperienceManager}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+        <ul class="pagination pagination-sm">
+            <li ng-class="{active:0}">
+                <a href="#" ng-click="firstPage()">First</a>
+
+            </li>
+            <li ng-repeat="n in range(ItemsByPage.length)">
+                <a href="#" ng-click="setPage()" ng-bind="n+1">1</a>
+
+            </li>
+            <li>
+                <a href="#" ng-click="lastPage()">Last</a>
+
+            </li>
+        </ul>
+    </div>
+    <!-- Ends Controller -->
+</div>
+
+<script>
+    var listItemsCSOM = [];
+    var scope;
+    var loading;
+    var listItems = null;
+    var emEmail = "";
+    var bcc = '';
+
+    var emailTemmplates = {
+        clientOpportunity: {
+            subject: 'I am interested in an opportunity: <<Client Name>> and <<Role Title>>',
+            body: 'Hello,\n\n I have read the description and requirements: <<Role Requirements>> and feel I have the requisite experience and skill and am interested in learning more. '
+        },
+        internalOpportunity: {
+            subject: 'I am interested in an opportunity: <<Client Name>> and <<Role Title>>',
+            body: 'Hello,\n\n I have read the description and requirements: <<Role Requirements>> and feel I have the requisite experience and skill and am interested in learning more. '
+        },
+        availability: {
+            subject: 'I have an opportunity for <<Name of user>>',
+        //   body: 'Hello,\nI have reviewed your experience and I feel that you qualify for a role that I am looking to fill. \nThank You. \n<Email Counselor>'
+        body: 'Hello,\nI have reviewed your experience and I may have an opportunity for you.  <Insert additional text as desired>. \n\nThank You.\n<To add your signature: Access Insert menu, Signature, EY Full Signature> '
+        }
+    }
+
+    function sendEmailFun(to, cc, avlUserName) {
+        var mail = 'mailto:' + to + '?subject=' + encodeURIComponent(emailTemmplates.availability.subject.replace('<<Name of user>>', avlUserName)) + '&body=' + encodeURIComponent(emailTemmplates.availability.body);
+
+        if (typeof cc != 'undefined' && cc != '') {
+            mail += '&cc=' + cc;
+        }
+
+        if (typeof bcc != 'undefined' && bcc != '') {
+            mail += '&bcc=' + bcc;
+        }
+
+        var a = document.createElement('a');
+        a.href = mail;
+        document.body.appendChild(a); // Add to the DOM
+        a.click();
+        document.body.removeChild(a); // Remove it back
+    }
+
+    function BtnClickEvent(id) {
+        //var link = $(this).attr('href');
+        //JSRequest.EnsureSetup();
+        var userID = id;//GetUrlKeyValue('ID', false, link);
+        if (typeof userID != "undefined" || userID != "") {
+            var meObj = new EYC.ME();
+            meObj.getUserDetails(userID);
+        }
+
+        return false;
+    }
+
+    var myApp = angular.module('myApp', []);
+
+    myApp.service('filteredListService', function () {
+
+        this.searched = function (input, searchText) {
+
+            if (!angular.isUndefined(searchText) && searchText.length > 0) {
+                var returnArray = [];
+                var searchTextSplit = searchText.toLowerCase().split(' ');
+                for (var x = 0; x < input.length; x++) {
+                    var count = 0;
+                    for (var y = 0; y < searchTextSplit.length; y++) {
+                        if (input[x].Name.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].SSL.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].Rank.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].Availability.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].AboutMe.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].MyCompetencies.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].Competency.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].SectorName.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].CityName.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].Country.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].Region.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                        if (input[x].ExperienceManager.toLowerCase().indexOf(searchTextSplit[y]) !== -1) {
+                            count++;
+                        }
+                    }
+                    if (count > 0) {
+                        returnArray.push(input[x]);
+                    }
+                }
+                return returnArray;
+            }
+
+            else {
+                return input;
+            }
+        };
+
+        this.paged = function (valLists, pageSize) {
+            retVal = [];
+            for (var i = 0; i < valLists.length; i++) {
+                if (i % pageSize === 0) {
+                    retVal[Math.floor(i / pageSize)] = [valLists[i]];
+                } else {
+                    retVal[Math.floor(i / pageSize)].push(valLists[i]);
+                }
+            }
+            return retVal;
+        };
+
+    });
+
+    var TableCtrl = myApp.controller('TableCtrl', function ($scope, $filter, $sce, $interval, filteredListService) {
+
+        $scope.pageSize = 30;
+        $scope.allItems = [{}];
+        $scope.reverse = false;
+
+        scope = $scope;
+        retrieveListItems();
+
+        $scope.sendEmail = function (to, cc, avlUserName) {
+            sendEmailFun(to+';'+cc, '' , avlUserName);
+        }
+
+        $scope.ShowBCard = function (Id) {
+            BtnClickEvent(Id);
+        }
+
+        $scope.resetAll = function () {
+            $scope.filteredList = $scope.allItems;
+            $scope.newEmpId = '';
+            $scope.newName = '';
+            $scope.newEmail = '';
+            $scope.searchText = '';
+            $scope.currentPage = 0;
+            //      $scope.Header = ['', '', ''];
+        }
+
+        $scope.search = function () {
+            $scope.filteredList =
+                            filteredListService.searched($scope.allItems, $scope.searchText);
+
+            if ($scope.searchText == '') {
+                $scope.filteredList = $scope.allItems;
+            }
+            $scope.pagination();
+        }
+        $scope.highlight = function (text, search) {
+            var searchTextSplit = search.toLowerCase().split(' ');
+
+            if (!search) {
+                return $sce.trustAsHtml(text);
+            }
+            
+            for (var x = 0; x < searchTextSplit.length; x++) {
+                var pattern1 = "<span.*?<\\/span>";
+                var pattern2 = "(" + searchTextSplit[x] + ")";
+
+                var regex = new RegExp(pattern1 + '|' + pattern2, 'gi');
+                text = text.replace(regex, function (m, group1) {
+                    if (typeof group1 == 'undefined' || group1 == "") return m;
+                    else return "<span class=\"highlightedText\">" + group1 + "</span>";
+                });
+            }
+            
+            //for (var x = 0; x < searchTextSplit.length; x++) {
+            //    text = text.replace(new RegExp(searchTextSplit[x], 'gi'), '<span class="highlightedText">$&</span>');
+            //}
+
+            //return $sce.trustAsHtml(text.replace(new RegExp(search, 'gi'), '<span class="highlightedText">$&</span>'));
+            return $sce.trustAsHtml(text);
+        };
+        // Calculate Total Number of Pages based on Search Result
+        $scope.pagination = function () {
+            $scope.ItemsByPage = filteredListService.paged($scope.filteredList, $scope.pageSize);
+        };
+
+        $scope.setPage = function () {
+            $scope.currentPage = this.n;
+        };
+
+        $scope.firstPage = function () {
+            $scope.currentPage = 0;
+        };
+
+        $scope.lastPage = function () {
+            $scope.currentPage = $scope.ItemsByPage.length - 1;
+        };
+
+        $scope.range = function (input, total) {
+            var ret = [];
+            if (!total) {
+                total = input;
+                input = 0;
+            }
+            for (var i = input; i < total; i++) {
+                if (i != 0 && i != total - 1) {
+                    ret.push(i);
+                }
+            }
+            return ret;
+        };
+        $scope.sort = function (sortBy) {
+            $scope.resetAll();
+
+            $scope.columnToOrder = sortBy;
+
+            //$Filter - Standard Service
+            $scope.filteredList = $filter('orderBy')($scope.filteredList, $scope.columnToOrder, $scope.reverse);
+            $scope.pagination();
+        };
+
+        //By Default sort ny
+        $scope.sort('name');
+    });
+
+    TableCtrl.$inject = ['$scope', '$filter', 'filteredListService'];
+
+    function searchUtil(item, toSearch) {
+        /* Search Text in all 3 fields */
+        return (item.name.toLowerCase().indexOf(toSearch.toLowerCase()) > -1 || item.Email.toLowerCase().indexOf(toSearch.toLowerCase()) > -1 || item.EmpId == toSearch) ? true : false;
+    }
+
+    //Function to retrieve list item
+    function retrieveListItems() {
+        $.ajax({
+            url: _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('Daily Availability')/items?$select=Id,AvailableUserName/Title,AvailableUserName/Id,SLSSL/Title,Rank,AvailableSector,UserCompetency,AvailableCompetency,CityName,AboutMe,Country,AvailableRegion/Title,ExperienceManager/Title,Availability,AvailableUserName/EMail,ExperienceManager/EMail&$expand=AvailableUserName,ExperienceManager,AvailableRegion,SLSSL",
+            method: "GET",
+            async: false,
+            headers: { "Accept": "application/json; odata=verbose" },
+            success: function (data) {
+                $.each(data.d.results, function (i, val) {
+                    listItemsCSOM.push({
+                        ItemId: validateData(val.Id),
+                        Name: validateName(val.AvailableUserName),
+                        UserId: validateId(val.AvailableUserName),
+                        Email: validateEmail(val.AvailableUserName),
+                        SSL: validateData(val.SLSSL.Title),
+                        Rank: validateData(val.Rank),
+                        SectorName: validateData(val.AvailableSector),
+                        MyCompetencies: validateData(val.UserCompetency),
+                        Competency: validateData(val.AvailableCompetency),
+                        AboutMe: validateData(val.AboutMe),
+                        CityName: validateData(val.CityName),
+                        Country: validateData(val.Country),
+                        Region: validateData(val.AvailableRegion.Title),
+                        ExperienceManager: validateName(val.ExperienceManager),
+                        ExperienceManagerEmail: validateEmail(val.ExperienceManager),
+                        Availability: validateData(val.Availability)
+                    });
+                });
+
+                var filtered_listItemsCSOM = [];
+                var region = GetUrlKeyValue("FilterValue1");
+                var ssl = GetUrlKeyValue("FilterValue2");
+
+                if (region && ssl) {
+                    $.each(listItemsCSOM, function (i, val) {
+                        if ((val.Region == region) && (val.SSL == ssl)) {
+                            filtered_listItemsCSOM.push(val);
+                        }
+                    });
+                }
+
+                if (filtered_listItemsCSOM.length > 0) {
+                    scope.allItems = filtered_listItemsCSOM;
+                }
+
+                else {
+                    scope.allItems = listItemsCSOM;
+                }
+
+                // endLoading();
+                $(".form-control").val("a");
+                $(".form-control").change();
+                $(".form-control").val("");
+                $(".form-control").change();
+            },
+            error: function (data) {
+                listItemsCSOM.push({
+                    ItemId: "NA",
+                    Name: "NA",
+                    UserId: "NA",
+                    Email: "NA",
+                    SSL: "NA",
+                    Rank: "NA",
+                    SectorName: "NA",
+                    Competency: "NA",
+                    AboutMe: "NA",
+                    CityName: "NA",
+                    Country: "NA",
+                    Region: "NA",
+                    ExperienceManager: "NA",
+                    ExperienceManagerEmail: "NA",
+                    Availability: "NA"
+                });
+                scope.allItems = listItemsCSOM;
+            }
+        });
+    }
+
+    function validateData(data) {
+        if (data != null) {
+            return data;
+        }
+        else {
+            return "";
+        }
+    }
+
+
+    function validateName(data) {
+        if (data.Title != null) {
+            return data.Title;
+        }
+        else {
+            return "";
+        }
+    }
+
+    function validateEmail(data) {
+        if (data.EMail != null) {
+            return data.EMail;
+        }
+        else {
+            return "";
+        }
+    }
+
+    function validateId(data) {
+        if (data.Id != null) {
+            return data.Id;
+        }
+        else {
+            return "";
+        }
+    }
+
+    //Functions to show processing window
+    function startLoading() {
+        EnsureScript('sp.ui.dialog.js', typeof (SP.UI.ModalDialog), function () { });
+        loading = SP.UI.ModalDialog.showWaitScreenWithNoClose('', 'Processing...');
+    }
+
+    function endLoading() { try { loading.close(); loading = null; } catch (ex) { } }
+
+    $(document).ready(function () {
+        //    startLoading();
+    });
+
+</script>

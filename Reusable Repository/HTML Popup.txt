@@ -1,0 +1,28 @@
+function openDialog(itemID, to, cc, bcc, client, role, rank, roleDesc, roleReq, type, PoC, date) {
+    if (confirm("By selecting OK below, you are confirming you meet the requirements of the opportunity and have the available time to execute fully.")) {
+        var html = '<div style="display: none"><div class="ms-Grid-row" id="EMMailBox">' +
+                    '<div class="ms-Grid-col ms-u-sm12 ms-u-md12 ms-u-lg12 em-id-wrapper">' +
+                        '<div class="em-id"><input type="text" id="EMID" placeholder="Type here..."></div>' +
+                        '<div><input type="button" class="em-id-btn" onclick="closeDialog()" value="Ok" /></div>' +
+                    '</div>' +
+                '</div></div>';
+        $('.main-wrapper').append(html);
+
+        var e = $('#EMMailBox')[0];
+        var options = {
+            title: "Required: Please enter your Experience Manager's email",
+            html: e,
+            dialogReturnValueCallback: function (result, target) {
+                if (result !== 0) {
+                    startLoading();
+                    cc = currentUserInfo.Email;
+                    takenBy = currentUserInfo.UserName;
+                    takenByAccountName = currentUserInfo.AccountName;
+                    sendEmail(to, cc, bcc, client, role, rank, roleDesc, roleReq, type, result, PoC, date, takenBy, takenByAccountName);
+                    changeOpportunityStatus(itemID, takenBy);
+                }
+            }
+        };
+        SP.UI.ModalDialog.showModalDialog(options);
+    }    
+};

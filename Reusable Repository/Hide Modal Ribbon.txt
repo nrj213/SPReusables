@@ -1,0 +1,5 @@
+<style>
+.ms-dialog #s4-ribbonrow {
+            display: none;
+        }
+</style>

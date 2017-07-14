@@ -1,0 +1,2 @@
+https://sitename/_layouts/15/changesitemasterpage.aspx 
+http://sitename/_layouts/savetmpl.aspx
